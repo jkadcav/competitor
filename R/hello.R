@@ -28,7 +28,6 @@ scratched<-function( eventId, compEventId ) {
   event<-events::retrieve_event(eventId)
   a<-paste('event$event_competitors$`',compEventId,'`$scratched',sep="")
   scratched<-eval(parse(text=a))
-
   return (scratched)
 }
 
