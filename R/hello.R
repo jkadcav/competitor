@@ -47,3 +47,18 @@ scratchings<-function( eventId ) {
   scr<-length(a[a==TRUE])
   return(scr)
 }
+
+#' Retrieve competitor, jockey, or trainer name
+#'
+#' @param compeventId Database ID of the event
+#' @param eventId Database ID of the event
+#' @param type returns competitor, trainer, or jockey name
+#' @keywords competitor details
+#' @export
+#' @examples
+#' scratchings( 1175769 )
+runnerDetails<-function(compeventid,eventid,type){
+  event<-events::retrieve_event(eventid)
+  runner<-eval(parse(text=paste('event$event_competitors$`',compeventid,'`$',type,'$name',sep="")))
+  return(runner)
+}
