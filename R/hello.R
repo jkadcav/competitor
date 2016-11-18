@@ -12,8 +12,8 @@ finish_position<-function( eventId, compEventId ) {
   event<-events::retrieve_event(eventId)
   a<-paste('event$event_competitors$`',compEventId,'`$finish_position',sep="")
   finishPosition<-eval(parse(text=a))
-
-  return (finishPosition)
+  if(length(finishPosition)<1) return(NA)
+  else return (finishPosition)
 }
 
 #' Retrieve competitor scratched property
